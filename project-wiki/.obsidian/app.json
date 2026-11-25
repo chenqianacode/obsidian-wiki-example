@@ -1,0 +1,13 @@
+{
+  "useMarkdownLinks": false,
+  "newLinkFormat": "shortest",
+  "alwaysUpdateLinks": true,
+  "attachmentFolderPath": "assets",
+  "showFrontmatter": true,
+  "userIgnoreFilters": [
+    "scripts/",
+    "prompts/",
+    "node_modules/",
+    ".cache/"
+  ]
+}

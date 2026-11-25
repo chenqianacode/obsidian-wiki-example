@@ -1,0 +1,7 @@
+node_modules/
+project-wiki/personal/
+project-wiki/.cache/
+project-wiki/.obsidian/workspace*.json
+project-wiki/.obsidian/cache
+.DS_Store
+Thumbs.db

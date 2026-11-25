@@ -1,0 +1,5 @@
+personal/
+.cache/
+node_modules/
+.obsidian/workspace*.json
+.obsidian/cache

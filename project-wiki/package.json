@@ -1,0 +1,13 @@
+{
+  "name": "project-wiki",
+  "private": true,
+  "type": "module",
+  "description": "纯 Skill 驱动的项目设计文档 Wiki（仅含 0-token 确定性辅助脚本）",
+  "scripts": {
+    "diff": "node scripts/sync-diff.mjs",
+    "index": "node scripts/build-index.mjs",
+    "lint": "node scripts/lint.mjs",
+    "search": "node scripts/search.mjs",
+    "check-sync": "node scripts/check-sync-hook.mjs"
+  }
+}
