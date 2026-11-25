@@ -1,6 +1,6 @@
 {
   "collapse-filter": true,
-  "search": "",
+  "search": "-path:wiki/_indexes -path:wiki/_reports -file:index",
   "showTags": false,
   "showAttachments": false,
   "hideUnresolved": false,

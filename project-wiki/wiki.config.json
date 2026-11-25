@@ -1,6 +1,7 @@
 {
   "docsDir": "../docs",
   "docsBranch": "main",
+  "extensions": [".md"],
   "exclude": ["README.md"],
   "order": ["01_基础设计", "03_表定义", "02_详细设计", "04_变更与评审"]
 }

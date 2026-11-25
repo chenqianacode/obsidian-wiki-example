@@ -6,7 +6,6 @@
   "showFrontmatter": true,
   "userIgnoreFilters": [
     "scripts/",
-    "prompts/",
     "node_modules/",
     ".cache/"
   ]

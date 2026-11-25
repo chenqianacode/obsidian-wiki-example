@@ -6,8 +6,8 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node project-wiki/scripts/check-sync-hook.mjs",
-            "timeout": 5
+            "command": "node project-wiki/scripts/check-sync-hook.mjs --format=gemini",
+            "timeout": 5000
           }
         ]
       }

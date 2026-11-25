@@ -34,9 +34,17 @@ export const VALID_STATUS = {
 
 export const safeName = (n) =>
   String(n).replace(/[\\/:*?"<>|#^[\]]/g, '_').replace(/\s+/g, ' ').trim().slice(0, 80);
-export const norm = (s) => String(s).toLowerCase().replace(/[\s_\-·（）()]/g, '');
+export const norm = (s) => String(s).toLowerCase().replace(/[\s_\-·（）()[\]'"`]/g, '');
 export const link = (n) => `[[${safeName(n)}]]`;
 export const unlink = (s) => String(s).replace(/^\[\[|\]\]$/g, '').split('|')[0].split('#')[0].trim();
+
+/** 同时兼容半角冒号 `:` 与中文全角冒号 `：` 切分键值对 */
+export function splitColon(str) {
+  const s = String(str);
+  const m = s.match(/[:：]/);
+  if (!m || m.index === undefined) return [s.trim(), ''];
+  return [s.slice(0, m.index).trim(), s.slice(m.index + 1).trim()];
+}
 
 /** 剥离代码块与行内反引号，防止代码示例中的 [[...]] 被误判为双链 */
 export function stripCode(markdown) {
@@ -44,6 +52,21 @@ export function stripCode(markdown) {
     .replace(/```[\s\S]*?```/g, '')
     .replace(/~~~[\s\S]*?~~~/g, '')
     .replace(/`[^`\n]+`/g, '');
+}
+
+/** 提取正文中的所有双链目标名（自动去除 |别名 与 #标题 锚点） */
+export function extractWikiLinks(markdown) {
+  const targets = new Set();
+  for (const m of stripCode(markdown).matchAll(/\[\[([^\]]+)\]\]/g)) {
+    const t = unlink(m[1]);
+    if (t) targets.add(t);
+  }
+  return targets;
+}
+
+/** 将 Markdown 表格单元格中的管道符与换行符转义，避免撑破表格 */
+export function escCell(val) {
+  return String(val ?? '').replace(/\r?\n/g, ' ').replace(/\|/g, '\\|');
 }
 
 /** 读取 wiki/ 下所有页面（不含 _indexes、_reports） */

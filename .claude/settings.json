@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node project-wiki/scripts/check-sync-hook.mjs",
+            "command": "node \"$CLAUDE_PROJECT_DIR/project-wiki/scripts/check-sync-hook.mjs\"",
             "timeout": 5
           }
         ]

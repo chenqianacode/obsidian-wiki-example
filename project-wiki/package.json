@@ -5,8 +5,10 @@
   "description": "纯 Skill 驱动的项目设计文档 Wiki（仅含 0-token 确定性辅助脚本）",
   "scripts": {
     "diff": "node scripts/sync-diff.mjs",
+    "pending": "node scripts/sync-diff.mjs --pending",
     "index": "node scripts/build-index.mjs",
     "lint": "node scripts/lint.mjs",
+    "lint:strict": "node scripts/lint.mjs --strict",
     "search": "node scripts/search.mjs",
     "check-sync": "node scripts/check-sync-hook.mjs"
   }
